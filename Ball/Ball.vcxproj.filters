@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="GameEngine">
+      <UniqueIdentifier>{9533b96c-f523-411e-856a-b674c469e743}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\.h">
+      <UniqueIdentifier>{4390c462-daa2-44e3-bff5-23bb015b2aa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\.cpp">
+      <UniqueIdentifier>{1ce36090-467d-4d1b-a010-6e1a7929a1f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{57f5aaaf-562f-4d11-81d5-81e9a008c24b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\.cpp">
+      <UniqueIdentifier>{db9af1ee-ecd3-4555-b70c-e69b0a3c01d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\.h">
+      <UniqueIdentifier>{4572775f-f394-4fec-a4df-25f464a92074}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Ball.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayState.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMath.cpp">
+      <Filter>GameEngine\.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager.cpp">
+      <Filter>GameEngine\.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="StateManager.cpp">
+      <Filter>GameEngine\.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Objects\.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerObject.cpp">
+      <Filter>Objects\.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerCreator.cpp">
+      <Filter>Objects\.cpp</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MainMenuState.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayState.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Assets.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMath.h">
+      <Filter>GameEngine\.h</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager.h">
+      <Filter>GameEngine\.h</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>GameEngine\.h</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.h">
+      <Filter>GameEngine\.h</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Objects\.h</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerObject.h">
+      <Filter>Objects\.h</Filter>
+    </ClInclude>
+    <ClInclude Include="Creator.h">
+      <Filter>Objects\.h</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerCreator.h">
+      <Filter>Objects\.h</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\x64\Debug\Fonts\PFAgoraSlabProBold.ttf">
+      <Filter>Файлы ресурсов</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Textures\mark.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
