@@ -22,7 +22,7 @@ void PlayState::Init()
 	m_content->assetMan->AddTexture(Textures::CANNON_TEXTURE, "Textures/cannon.png");
 	
 
-	m_player = std::dynamic_pointer_cast<PlayerObject>(m_playerCreator.CreateObject(m_content,Alliance::ALLY_ALLIANCE,sf::Vector2f(350.f,350.f)));
+	m_player = std::dynamic_pointer_cast<PlayerObject>(m_playerCreator.CreateObject(m_content,sf::Vector2f(500.f,500.f),sf::Vector2f(0.f,0.f),Alliance::ALLY_ALLIANCE));
 
 
 	m_content->renderWindow->setMouseCursorVisible(false);
