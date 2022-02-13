@@ -2,7 +2,7 @@
 #include "GameState.h"
 
 #include "PlayerObject.h"
-#include "PlayerCreator.h"
+#include "BulletObject.h"
 
 class PlayState :
     public GameState
@@ -20,13 +20,15 @@ public:
     virtual void Update(float deltaTime) override;
     virtual void HandleEvent() override;
 
+
+    GameObject* CreateObject(ObjectTypes type);
 private:
 
     std::shared_ptr<Content> m_content;
 
-    std::shared_ptr<PlayerObject> m_player;
-    PlayerCreator m_playerCreator;
+    PlayerObject* m_player;
 
+    std::vector<GameObject*> m_objects;
 
     sf::Sprite m_mark;
 };

@@ -149,11 +149,14 @@
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="BulletObject.cpp" />
+    <ClCompile Include="ComponentBase.cpp" />
+    <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="ESC.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameMath.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
-    <ClCompile Include="PlayerCreator.cpp" />
     <ClCompile Include="PlayerObject.cpp" />
     <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="StateManager.cpp" />
@@ -164,13 +167,16 @@
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Assets.h" />
-    <ClInclude Include="Creator.h" />
+    <ClInclude Include="BulletObject.h" />
+    <ClInclude Include="ComponentBase.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="ESC.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameConstants.h" />
     <ClInclude Include="GameMath.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="MainMenuState.h" />
-    <ClInclude Include="PlayerCreator.h" />
     <ClInclude Include="PlayerObject.h" />
     <ClInclude Include="PlayState.h" />
     <ClInclude Include="StateManager.h" />

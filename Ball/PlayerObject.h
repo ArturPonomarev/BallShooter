@@ -1,5 +1,7 @@
 #pragma once
 #include "GameObject.h"
+#include "BulletObject.h"
+
 class PlayerObject :
     public GameObject
 {
@@ -8,6 +10,7 @@ public:
     virtual ~PlayerObject() {};
 
     // Унаследовано через GameObject
+    virtual void Init() override;
     virtual void Update(float deltaTime) override;
     virtual void ProcessInput() override;
     virtual void Collide(GameObject& otherObj) override;
@@ -15,10 +18,24 @@ public:
 
     sf::Vector2f CalculateShootPosition();
 
+
+    //---------Сеттеры Геттеры---------------------------
+    float GetReloadTime() { return m_reloadTime; }
+    void SetReloadTime(float newReloadTime) { m_reloadTime = newReloadTime; }
+
+    float GetMaxReloadTime() { return m_maxReloadTime; }
+    void SetMaxReloadTime(float newMaxReloadTime) { m_maxReloadTime = newMaxReloadTime; }
+
+    bool GetShot() { return m_isShot; }
+    void SetShot(bool newIsShot) { m_isShot = newIsShot; }
+    //---------------------------------------------------
+
 private:
     sf::Sprite m_cannon;
 
-    //Тест
-    sf::CircleShape m_projectile;
+    //Стрельба
+    float m_reloadTime;
+    float m_maxReloadTime;
+    bool m_isShot; 
 };
 

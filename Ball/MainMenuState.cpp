@@ -13,6 +13,7 @@ MainMenuState::MainMenuState(std::shared_ptr<Content>& content)
 
 MainMenuState::~MainMenuState()
 {
+
 }
 
 void MainMenuState::Init()
@@ -63,9 +64,6 @@ void MainMenuState::Init()
 	m_isExitButtonPressed = false;
 	m_isStartButtonSelected = false;
 	m_isExitButtonSelected = false;
-
-
-	
 }
 
 void MainMenuState::Leave()

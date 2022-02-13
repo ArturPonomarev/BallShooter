@@ -6,35 +6,56 @@
 
 #include "Game.h"
 #include "Assets.h"
+#include "GameState.h"
+
+#include "GameConstants.h"
 
 PlayerObject::PlayerObject(std::shared_ptr<Content>& content) : GameObject(content)
 {
+	m_type = ObjectTypes::PLAYER_TYPE;
+	m_alliance = Alliance::ALLY_ALLIANCE;
+
+	m_maxHp = PLAYER_MAX_HEALTH;
+	m_currentHp = m_maxHp;
+	m_speed = PLAYER_SPEED;
+	
+	m_maxReloadTime = PLAYER_RELOAD_TIME;
+	m_reloadTime = m_maxReloadTime;
+
+	m_shape.setRadius(25.f);
+	m_shape.setOrigin(m_shape.getRadius(), m_shape.getRadius());
+	m_shape.setOutlineThickness(5);
+	m_shape.setOutlineColor(sf::Color::Black);
+	m_shape.setFillColor(sf::Color::Red);
+
+	m_content->assetMan->AddTexture(Textures::CANNON_TEXTURE, "Textures/cannon.png");
 	m_cannon.setTexture(m_content->assetMan->GetTexture(Textures::CANNON_TEXTURE));
 	m_cannon.setOrigin(15.f, 65.f);
-
-	m_type = ObjectTypes::PLAYER_TYPE;
-
-	//Тест
-	m_projectile.setRadius(10.f);
-	m_projectile.setOutlineThickness(3);
-	m_projectile.setFillColor(sf::Color::Green);
-	m_projectile.setOutlineColor(sf::Color::Black);
-	m_projectile.setOrigin(10.f, 10.f);
-	m_projectile.setPosition(100.f, 100.f);
 }
 
+void PlayerObject::Init()
+{
+	
+}
 
 void PlayerObject::Update(float deltaTime)
 {
-	float dx = deltaTime * m_direction.x * m_speed;
-	float dy = deltaTime * m_direction.y * m_speed;
+	GameObject::Update(deltaTime);
 
-	m_shape->setPosition(m_shape->getPosition() + sf::Vector2f(dx,dy));
-	
-	m_cannon.setPosition(m_shape->getPosition());
+	//-------Перезарядка-------//
+	if (m_reloadTime > 0.f)
+	{
+		m_reloadTime -= deltaTime;
+	}
+
+	//-------------------------//
+
+	//-------Пушка-------//
+	m_cannon.setPosition(m_shape.getPosition());
 	
 	sf::Vector2f cursorPos = m_content->renderWindow->mapPixelToCoords(sf::Mouse::getPosition(*(m_content->renderWindow.get())));
 	m_cannon.setRotation(GetCursorAngle(m_cannon.getPosition(), cursorPos) + 90.f);
+	//-------------------//
 }
 
 void PlayerObject::ProcessInput()
@@ -63,7 +84,11 @@ void PlayerObject::ProcessInput()
 
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 	{
-		m_projectile.setPosition(this->CalculateShootPosition());
+		if (m_reloadTime <= 0.f)
+		{
+			m_isShot = true;
+			m_reloadTime = m_maxReloadTime;
+		}
 	}
 }
 
@@ -74,11 +99,8 @@ void PlayerObject::Collide(GameObject& otherObj)
 void PlayerObject::Render()
 {
 	m_content->renderWindow->draw(m_cannon);
-	m_content->renderWindow->draw(*m_shape.get());
-	
 
-	//Тест
-	m_content->renderWindow->draw(m_projectile);
+	GameObject::Render();
 }
 
 sf::Vector2f PlayerObject::CalculateShootPosition()
@@ -86,7 +108,7 @@ sf::Vector2f PlayerObject::CalculateShootPosition()
 	float radius = 50.f;
 	sf::Vector2f cursorPos = m_content->renderWindow->mapPixelToCoords(sf::Mouse::getPosition(*(m_content->renderWindow.get())));
 	
-	sf::Vector2f normVec = NormalizeVector(cursorPos - m_shape->getPosition());
+	sf::Vector2f normVec = NormalizeVector(cursorPos - m_shape.getPosition());
 
-	return m_shape->getPosition() + sf::Vector2f(normVec.x * radius, normVec.y * radius);
+	return m_shape.getPosition() + sf::Vector2f(normVec.x * radius, normVec.y * radius);
 }
