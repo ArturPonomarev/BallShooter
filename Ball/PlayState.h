@@ -21,15 +21,21 @@ public:
     virtual void HandleEvent() override;
 
 
-    GameObject* CreateObject(ObjectTypes type);
+    std::shared_ptr<GameObject>& CreateObject(ObjectTypes type); //Создает объект типа type
+    void DeleteObjects(); //Удаляет все объекты с меткой delete = true;
+    
+
 private:
 
-    std::shared_ptr<Content> m_content;
+    std::shared_ptr<Content> m_content; 
 
-    PlayerObject* m_player;
+    std::weak_ptr<PlayerObject> m_player;               //Игрок
+    std::vector<std::shared_ptr<GameObject>> m_objects; //Массив объектов
+    std::shared_ptr<GameObject> m_bufObject;            //Временный объект для заполнения массива, в функции CreateObject
+                                                        
 
-    std::vector<GameObject*> m_objects;
+    sf::Sprite m_mark;  //Прицел, заменяющий стандартный курсор
 
-    sf::Sprite m_mark;
+    sf::View m_view;    //Камера                       
 };
 

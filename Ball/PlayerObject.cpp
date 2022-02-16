@@ -15,12 +15,18 @@ PlayerObject::PlayerObject(std::shared_ptr<Content>& content) : GameObject(conte
 	m_type = ObjectTypes::PLAYER_TYPE;
 	m_alliance = Alliance::ALLY_ALLIANCE;
 
+	//-----Боевка-----//
 	m_maxHp = PLAYER_MAX_HEALTH;
 	m_currentHp = m_maxHp;
-	m_speed = PLAYER_SPEED;
 	
 	m_maxReloadTime = PLAYER_RELOAD_TIME;
 	m_reloadTime = m_maxReloadTime;
+
+	m_isShot = false;
+	//----------------//
+
+	m_speed = PLAYER_SPEED;
+	
 
 	m_shape.setRadius(25.f);
 	m_shape.setOrigin(m_shape.getRadius(), m_shape.getRadius());
@@ -28,9 +34,11 @@ PlayerObject::PlayerObject(std::shared_ptr<Content>& content) : GameObject(conte
 	m_shape.setOutlineColor(sf::Color::Black);
 	m_shape.setFillColor(sf::Color::Red);
 
+	//-------Пушка-------//
 	m_content->assetMan->AddTexture(Textures::CANNON_TEXTURE, "Textures/cannon.png");
 	m_cannon.setTexture(m_content->assetMan->GetTexture(Textures::CANNON_TEXTURE));
 	m_cannon.setOrigin(15.f, 65.f);
+	//-------------------//
 }
 
 void PlayerObject::Init()
@@ -47,7 +55,6 @@ void PlayerObject::Update(float deltaTime)
 	{
 		m_reloadTime -= deltaTime;
 	}
-
 	//-------------------------//
 
 	//-------Пушка-------//
@@ -92,7 +99,7 @@ void PlayerObject::ProcessInput()
 	}
 }
 
-void PlayerObject::Collide(GameObject& otherObj)
+void PlayerObject::Collide(std::shared_ptr<GameObject>& otherObj)
 {
 }
 

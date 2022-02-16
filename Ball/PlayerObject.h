@@ -13,7 +13,7 @@ public:
     virtual void Init() override;
     virtual void Update(float deltaTime) override;
     virtual void ProcessInput() override;
-    virtual void Collide(GameObject& otherObj) override;
+    virtual void Collide(std::shared_ptr<GameObject>& otherObj) override;
     virtual void Render() override;
 
     sf::Vector2f CalculateShootPosition();
@@ -28,6 +28,8 @@ public:
 
     bool GetShot() { return m_isShot; }
     void SetShot(bool newIsShot) { m_isShot = newIsShot; }
+
+    sf::Vector2f GetCannonPosition() { return m_cannon.getPosition(); }
     //---------------------------------------------------
 
 private:

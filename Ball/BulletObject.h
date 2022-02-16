@@ -1,6 +1,8 @@
 #pragma once
 #include "GameObject.h"
 
+#include <iostream>
+
 
 class BulletObject :
     public GameObject
@@ -8,18 +10,18 @@ class BulletObject :
 public:
    
     BulletObject(std::shared_ptr<Content>& content);
-    virtual ~BulletObject() {};
+    virtual ~BulletObject() { std::cout << "BulletObject destructor: bullet was del" << '\n'; };
 
     // Унаследовано через GameObject
     virtual void Init() override;
     virtual void Render() override;
     virtual void Update(float deltaTime) override;
     virtual void ProcessInput() override;
-    virtual void Collide(GameObject& otherObj) override;
+    virtual void Collide(std::shared_ptr<GameObject>& otherObj) override;
 
     //---------Сеттеры Геттеры---------------------------
-    GameObject* GetOwner() { return m_owner; }
-    void SetOwner(GameObject* newOwner) { m_owner = newOwner; }
+    std::shared_ptr<GameObject> GetOwner() { return m_owner; }
+    void SetOwner(std::shared_ptr<GameObject> newOwner) { m_owner = newOwner; }
 
     float GetDamage() { return m_damage; }
     void SetDamage(float newDamage) { m_damage = newDamage; }
@@ -27,7 +29,7 @@ public:
 
 
 protected:
-    GameObject* m_owner;
+    std::shared_ptr<GameObject> m_owner;
 
     float m_damage;
 };

@@ -12,15 +12,14 @@ BulletObject::BulletObject(std::shared_ptr<Content>& content) : GameObject(conte
 	m_isVulnerable = true;
 	m_isCollidable = true;
 	
-	//-----Пуля-----//
+	//-----Форма пули-----//
 	m_shape.setRadius(5);
 	m_shape.setOrigin(m_shape.getRadius(), m_shape.getRadius());
 
 	m_shape.setFillColor(sf::Color::Green);
 	m_shape.setOutlineThickness(2);
 	m_shape.setOutlineColor(sf::Color::Black);
-
-	//--------------//
+	//--------------------//
 
 	m_damage = 1.f;
 }
@@ -43,9 +42,11 @@ void BulletObject::ProcessInput()
 {
 }
 
-void BulletObject::Collide(GameObject& otherObj)
+void BulletObject::Collide(std::shared_ptr<GameObject>& otherObj)
 {
-	otherObj.GetDamage(m_damage);
-
-	m_delete = true;
+	if (otherObj->GetAlliance() != m_alliance)
+	{
+		otherObj->GetDamage(m_damage);
+		m_delete = true;
+	}
 }

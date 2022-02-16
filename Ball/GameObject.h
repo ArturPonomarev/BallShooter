@@ -20,7 +20,7 @@ public:
 
 	virtual void ProcessInput() = 0;
 
-	virtual void Collide(GameObject& otherObj) = 0;
+	virtual void Collide(std::shared_ptr<GameObject>& otherObj) = 0;
 
 	virtual void GetDamage(float dmg);
 	
