@@ -13,7 +13,7 @@ public:
 	GameObject(std::shared_ptr<Content>& content);
 	virtual ~GameObject() {};
 
-	virtual void Init() = 0;
+	virtual void Init();
 
 	virtual void Render();
 	virtual void Update(float deltaTime);
@@ -40,7 +40,7 @@ public:
 	////////////////////////
 
 	//Форма
-	sf::CircleShape GetShape() { return m_shape; }
+	sf::CircleShape& GetShape() { return m_shape; }
 	void SetShape(sf::CircleShape newShape) { m_shape = newShape; }
 	////////////////////////
 
@@ -76,7 +76,7 @@ protected:
 	bool m_isCollidable;		//есть
 
 
-	//Форма
+	//Форма для рендера
 	sf::CircleShape m_shape;	//есть
 
 	//Доступ к контенту (рендервиндов, стейты и т.д.)

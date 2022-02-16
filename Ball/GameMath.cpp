@@ -11,7 +11,6 @@ Vector2f NormalizeVector(Vector2f vec)
 
     return normalized;
 }
-
 float Distance(Vector2f from, Vector2f to)
 {
     Vector2f dist = from - to;
@@ -42,6 +41,13 @@ float GetCursorAngle(Vector2f objectPos, Vector2f cursorPos)
     float rotation = (atan2(dY, dX)) * 180 / 3.14159265;
 
     return rotation;
+}
+
+float GetRangomAngle(float range)
+{
+    float degrAngle = float(rand() % int(range * 2 + 1) - range);
+
+    return degrAngle * 3.141 / 180;
 }
 
 

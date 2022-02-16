@@ -3,6 +3,7 @@
 
 #include "PlayerObject.h"
 #include "BulletObject.h"
+#include "EnemyObject.h"
 
 class PlayState :
     public GameState
@@ -20,9 +21,9 @@ public:
     virtual void Update(float deltaTime) override;
     virtual void HandleEvent() override;
 
-
+    void SpawnEnemies();    //Вызывается при обновлении, отвечает за спавн врагов
     std::shared_ptr<GameObject>& CreateObject(ObjectTypes type); //Создает объект типа type
-    void DeleteObjects(); //Удаляет все объекты с меткой delete = true;
+    void DeleteObjects();   //Удаляет все объекты с меткой delete = true;
     
 
 private:
@@ -36,6 +37,18 @@ private:
 
     sf::Sprite m_mark;  //Прицел, заменяющий стандартный курсор
 
-    sf::View m_view;    //Камера                       
+    sf::View m_view;    //Камера  
+
+
+    //Спавн мобов
+    unsigned int m_enemyCount;
+    unsigned int m_maxEnemyCount;
+
+    float m_enemySpawnTime;
+    float m_enemySpawnTimer;
+    //-----------
+
+    float m_bulletSpreadingAngle;
+
 };
 

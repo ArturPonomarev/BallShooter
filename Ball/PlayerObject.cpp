@@ -28,11 +28,10 @@ PlayerObject::PlayerObject(std::shared_ptr<Content>& content) : GameObject(conte
 	m_speed = PLAYER_SPEED;
 	
 
-	m_shape.setRadius(25.f);
-	m_shape.setOrigin(m_shape.getRadius(), m_shape.getRadius());
+	m_shape.setRadius(PLAYER_RADIUS);
 	m_shape.setOutlineThickness(5);
 	m_shape.setOutlineColor(sf::Color::Black);
-	m_shape.setFillColor(sf::Color::Red);
+	m_shape.setFillColor(PLAYER_COLOR);
 
 	//-------Пушка-------//
 	m_content->assetMan->AddTexture(Textures::CANNON_TEXTURE, "Textures/cannon.png");
@@ -41,10 +40,6 @@ PlayerObject::PlayerObject(std::shared_ptr<Content>& content) : GameObject(conte
 	//-------------------//
 }
 
-void PlayerObject::Init()
-{
-	
-}
 
 void PlayerObject::Update(float deltaTime)
 {

@@ -3,6 +3,8 @@
 #include <iostream>
 
 #include "MainMenuState.h"
+#include <cstdlib>
+#include <ctime>
 
 Game::Game()
 {
@@ -14,6 +16,8 @@ Game::~Game()
 
 void Game::Init()
 {
+	srand(time(0));
+
 	m_content = std::make_shared<Content>();
 
 	m_content->renderWindow->create(sf::VideoMode(1280, 920), "Game", sf::Style::Default);

@@ -23,5 +23,6 @@ enum ObjectTypes
 	NONE_TYPE,
 	PLAYER_TYPE,
 	BULLET_TYPE,
+	ENEMY_TYPE,
 };
 

@@ -10,10 +10,9 @@ class BulletObject :
 public:
    
     BulletObject(std::shared_ptr<Content>& content);
-    virtual ~BulletObject() { std::cout << "BulletObject destructor: bullet was del" << '\n'; };
+    virtual ~BulletObject() {};
 
     // Унаследовано через GameObject
-    virtual void Init() override;
     virtual void Render() override;
     virtual void Update(float deltaTime) override;
     virtual void ProcessInput() override;
