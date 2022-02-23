@@ -64,6 +64,7 @@ void PlayState::Resume()
 void PlayState::Render()
 {
 	m_content->renderWindow->setView(m_view);
+
 	m_content->renderWindow->clear(sf::Color::White);
 
 	for (auto& obj : m_objects)
@@ -121,6 +122,21 @@ void PlayState::Update(float deltaTime)
 				newPos = obj->GetPosition();
 		}
 
+		//Не пускаем игрока за пределы экрана
+		if (obj->GetType() == ObjectTypes::PLAYER_TYPE)
+		{
+			float tempRadius = obj->GetShape().getRadius();
+
+			if ( (m_content->renderWindow->mapCoordsToPixel(newPos).x - tempRadius <= m_view.getCenter().x - m_view.getSize().x/2) ||
+				(m_content->renderWindow->mapCoordsToPixel(newPos).x + tempRadius >= m_view.getSize().x) ||
+				(m_content->renderWindow->mapCoordsToPixel(newPos).y - tempRadius <= 0.f) ||
+				(m_content->renderWindow->mapCoordsToPixel(newPos).y + tempRadius >= m_content->renderWindow->getSize().y) )
+			{
+				newPos = obj->GetPosition();
+			}
+		}
+
+
 		obj->SetPosition(newPos);
 		//------------------------------------------------//
 
@@ -136,7 +152,7 @@ void PlayState::Update(float deltaTime)
 			currentView.width = m_view.getSize().x;
 			currentView.height = m_view.getSize().y;
 
-			if (!currentView.contains(obj->GetPosition()))
+			if (!currentView.contains(sf::Vector2f(m_content->renderWindow->mapCoordsToPixel(obj->GetPosition()))) )
 				obj->SetDelete(true);
 		}
 		//---------------------------------------------------//
@@ -162,6 +178,7 @@ void PlayState::Update(float deltaTime)
 		{
 			m_player.lock()->SetShot(false);
 
+			//Создание пули
 			auto tempBullet = std::dynamic_pointer_cast<BulletObject>(CreateObject(ObjectTypes::BULLET_TYPE));
 			tempBullet->SetOwner(m_player.lock());
 			tempBullet->SetPosition(m_player.lock()->CalculateShootPosition());
@@ -177,6 +194,7 @@ void PlayState::Update(float deltaTime)
 	}
 	//------------------------//
 
+	//Удаление всех объектов, которые должны быть удалены
 	this->DeleteObjects();
 }
 
@@ -246,6 +264,11 @@ void PlayState::DeleteObjects()
 
 void PlayState::SpawnEnemies()
 {
+	//Алгоритм работает так:
+	//-выбирается рандомная точка на карте
+	//-проверяется к какому краю карты она ближе
+	//-противник спавнится в точке напротив выбранной точки в ближайшем краю карты
+
 	if (m_enemyCount >= m_maxEnemyCount)
 		return;
 

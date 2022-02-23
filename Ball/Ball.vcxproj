@@ -150,10 +150,7 @@
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="BulletObject.cpp" />
-    <ClCompile Include="ComponentBase.cpp" />
     <ClCompile Include="EnemyObject.cpp" />
-    <ClCompile Include="Entity.cpp" />
-    <ClCompile Include="ESC.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameMath.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -169,10 +166,7 @@
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Assets.h" />
     <ClInclude Include="BulletObject.h" />
-    <ClInclude Include="ComponentBase.h" />
     <ClInclude Include="EnemyObject.h" />
-    <ClInclude Include="Entity.h" />
-    <ClInclude Include="ESC.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameConstants.h" />
     <ClInclude Include="GameMath.h" />
@@ -181,13 +175,19 @@
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="PlayerObject.h" />
     <ClInclude Include="PlayState.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="StateManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="..\x64\Debug\Fonts\PFAgoraSlabProBold.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="bitmap1.bmp" />
+    <Image Include="Textures\cannon.png" />
     <Image Include="Textures\mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Ball.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

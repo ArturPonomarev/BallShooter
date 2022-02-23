@@ -31,9 +31,6 @@
     <Filter Include="Objects\.h">
       <UniqueIdentifier>{4572775f-f394-4fec-a4df-25f464a92074}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ECS %28without S%29">
-      <UniqueIdentifier>{6c716d34-efaf-4814-b154-da0190762b15}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ball.cpp">
@@ -62,15 +59,6 @@
     </ClCompile>
     <ClCompile Include="PlayerObject.cpp">
       <Filter>Objects\.cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>ECS %28without S%29</Filter>
-    </ClCompile>
-    <ClCompile Include="ESC.cpp">
-      <Filter>ECS %28without S%29</Filter>
-    </ClCompile>
-    <ClCompile Include="ComponentBase.cpp">
-      <Filter>ECS %28without S%29</Filter>
     </ClCompile>
     <ClCompile Include="BulletObject.cpp">
       <Filter>Objects\.cpp</Filter>
@@ -113,15 +101,6 @@
     <ClInclude Include="PlayerObject.h">
       <Filter>Objects\.h</Filter>
     </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>ECS %28without S%29</Filter>
-    </ClInclude>
-    <ClInclude Include="ESC.h">
-      <Filter>ECS %28without S%29</Filter>
-    </ClInclude>
-    <ClInclude Include="ComponentBase.h">
-      <Filter>ECS %28without S%29</Filter>
-    </ClInclude>
     <ClInclude Include="BulletObject.h">
       <Filter>Objects\.h</Filter>
     </ClInclude>
@@ -130,6 +109,9 @@
     </ClInclude>
     <ClInclude Include="EnemyObject.h">
       <Filter>Objects\.h</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -141,5 +123,16 @@
     <Image Include="Textures\mark.png">
       <Filter>Файлы ресурсов</Filter>
     </Image>
+    <Image Include="Textures\cannon.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="bitmap1.bmp">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Ball.rc">
+      <Filter>Файлы ресурсов</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
