@@ -1,4 +1,6 @@
 #include "PlayState.h"
+#include "PauseState.h"
+
 #include "GameMath.h"
 #include "Game.h"
 
@@ -55,10 +57,12 @@ void PlayState::Leave()
 
 void PlayState::Pause()
 {
+	m_content->renderWindow->setMouseCursorVisible(true);
 }
 
 void PlayState::Resume()
 {
+	m_content->renderWindow->setMouseCursorVisible(false);
 }
 
 void PlayState::Render()
@@ -211,6 +215,13 @@ void PlayState::HandleEvent()
 		case sf::Event::Closed:
 			m_content->renderWindow->close();
 			break;
+
+		case sf::Event::KeyPressed:
+			if (ev.key.code == sf::Keyboard::Key::Escape)
+			{
+				this->Pause();
+				m_content->stateMan->Add(std::make_unique<PauseState>(m_content));
+			}
 		default:
 			break;
 		}

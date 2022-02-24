@@ -31,15 +31,18 @@
     <Filter Include="Objects\.h">
       <UniqueIdentifier>{4572775f-f394-4fec-a4df-25f464a92074}</UniqueIdentifier>
     </Filter>
+    <Filter Include="States">
+      <UniqueIdentifier>{42a6af14-5f80-4d34-b386-19c54f2e4de8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="States\.h">
+      <UniqueIdentifier>{68b77b65-93c2-4680-bcf6-4e5b3ff9b265}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="States\.cpp">
+      <UniqueIdentifier>{40ffe64c-63c7-4848-817f-099a5f559cc1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ball.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="MainMenuState.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayState.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
@@ -66,17 +69,20 @@
     <ClCompile Include="EnemyObject.cpp">
       <Filter>Objects\.cpp</Filter>
     </ClCompile>
+    <ClCompile Include="PlayState.cpp">
+      <Filter>States\.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>States\.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseState.cpp">
+      <Filter>States\.cpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MainMenuState.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayState.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
@@ -113,6 +119,15 @@
     <ClInclude Include="resource.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="PlayState.h">
+      <Filter>States\.h</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseState.h">
+      <Filter>States\.h</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuState.h">
+      <Filter>States\.h</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="..\x64\Debug\Fonts\PFAgoraSlabProBold.ttf">
@@ -124,9 +139,6 @@
       <Filter>Файлы ресурсов</Filter>
     </Image>
     <Image Include="Textures\cannon.png">
-      <Filter>Файлы ресурсов</Filter>
-    </Image>
-    <Image Include="bitmap1.bmp">
       <Filter>Файлы ресурсов</Filter>
     </Image>
   </ItemGroup>

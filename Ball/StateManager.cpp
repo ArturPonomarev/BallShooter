@@ -44,7 +44,7 @@ void StateManager::ProcessStateChange()
 
 		if (!m_states.empty())
 		{
-			m_states.top()->Init();
+			m_states.top()->Resume();
 		}
 
 		m_remove = false;

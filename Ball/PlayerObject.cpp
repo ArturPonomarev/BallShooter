@@ -92,6 +92,9 @@ void PlayerObject::ProcessInput()
 			m_reloadTime = m_maxReloadTime;
 		}
 	}
+
+
+	m_direction = NormalizeVector(m_direction);
 }
 
 void PlayerObject::Collide(std::shared_ptr<GameObject>& otherObj)
